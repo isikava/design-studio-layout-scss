@@ -200,13 +200,10 @@ button {
   background-color: $yellow-color;
   border-radius: 1.5em 1.5em 0 0;
 
-  // svg {
-  //   width: 33%;
-  // }
   div {
     flex: 1 1;
-    max-width: 150px;
     min-width: 120px;
+    max-width: 200px;
     margin: 1rem;
     display: flex;
     justify-content: center;
@@ -346,10 +343,11 @@ button {
 
     div {
       margin: 0;
-
+      height: 4rem;
+      max-width: 200px;
       svg {
-        min-height: 4rem;
-        width: auto;
+        width: 100%;
+        height: auto;
       }
     }
   }
