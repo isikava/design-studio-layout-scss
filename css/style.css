@@ -127,6 +127,35 @@ button {
 }
 
 /* Hero */
+.hero-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.hero-content-left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
 .hero-content-left h1 {
   font-size: 3rem;
   margin-top: 2em;
@@ -146,6 +175,7 @@ button {
 
 .hero-content-left form {
   width: 100%;
+  margin: 1.5rem 0;
 }
 
 .hero-content-left form input {
@@ -197,18 +227,27 @@ button {
   background: #589a35;
 }
 
-.hero-img,
-.hero-blur,
-.ellipse,
-.icon-outer-circle {
-  display: none;
+.hero-image {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
 }
 
 .hero-companies {
-  position: absolute;
-  bottom: 0;
-  left: 1.5em;
-  right: 1.5em;
   text-align: center;
 }
 
@@ -231,19 +270,46 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #fed916;
   border-radius: 1.5em 1.5em 0 0;
 }
 
-.companies-wrapper svg {
-  width: 33%;
+.companies-wrapper div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  max-width: 150px;
+  min-width: 120px;
+  margin: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /* Media queries */
 @media only screen and (min-width: 640px) {
-  body,
-  .hero-companies {
+  body {
     margin: 1.5em 5em 0;
+  }
+  .hero-content-left h1 {
+    font-size: 3.5rem;
+    margin-top: 2em;
+    line-height: 4.3rem;
+  }
+  .hero-content-left .subtitle {
+    font-size: 1.6rem;
+  }
+  .hero-content-left .lead {
+    font-size: 1.4rem;
   }
 }
 
@@ -306,7 +372,23 @@ button {
     display: none;
   }
   .hero-content-left {
-    width: 41%;
+    -webkit-box-flex: 0.8;
+        -ms-flex: 0.8;
+            flex: 0.8;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-right: 5rem;
   }
   .hero-content-left h1 {
     font-size: 5.5rem;
@@ -343,127 +425,38 @@ button {
     padding: 1em;
     width: auto;
   }
-  .hero-img {
-    display: block;
-    position: absolute;
-    top: 5.25em;
-    right: 5.4em;
-    background: no-repeat url("../assets/teenage-black-boy-png-transparent-png.png");
-    background-size: contain;
-    width: 43.25em;
-    height: 50em;
-    z-index: -1;
-  }
-  .hero-blur {
-    display: block;
-    position: absolute;
-    z-index: -1;
-    top: 46.45em;
-    right: 4.6em;
-    width: 49em;
-    padding: 2.1em 13.1em 4em;
-    text-align: center;
-    background: radial-gradient(100% 100% at 0% 0%, rgba(249, 251, 255, 0.4) 0%, rgba(249, 251, 255, 0) 100%);
-    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
-    -webkit-box-shadow: inset -5px -5px 250px rgba(255, 255, 255, 0.02);
-            box-shadow: inset -5px -5px 250px rgba(255, 255, 255, 0.02);
-    -webkit-backdrop-filter: blur(1.1em);
-            backdrop-filter: blur(1.1em);
-    /* Note: backdrop-filter has minimal browser support */
-  }
-  .hero-blur p {
-    margin: 0;
-    color: #ffffff;
-    font-size: 1.625rem;
-    line-height: 2rem;
-    letter-spacing: 0.05em;
-  }
-  .hero-blur p span {
-    color: #fed916;
-  }
-  .ellipse {
-    display: block;
-    position: absolute;
-    width: 28em;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    z-index: -22;
-  }
-  .ellipse-top {
-    top: 11em;
-    right: 22.4em;
-    background: #fbe3b2;
-  }
-  .ellipse-bot {
-    top: 25em;
-    right: 6.4em;
-    background: #d2f8ff;
-  }
-  /* Icons start */
-  .icon-outer-circle {
-    display: block;
-    width: 4.5em;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    position: absolute;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    background: #ffffff;
-    -webkit-filter: drop-shadow(5px 6px 12px rgba(0, 0, 0, 0.1));
-            filter: drop-shadow(5px 6px 12px rgba(0, 0, 0, 0.1));
-    z-index: -11;
-  }
-  .icon-outer-circle svg {
-    width: 2.1em;
-    height: auto;
-  }
-  .ae {
-    top: 10.75em;
-    right: 45.8em;
-  }
-  .ps {
-    top: 26em;
-    right: 47.55em;
-  }
-  .ai {
-    top: 17.45em;
-    right: 15.4em;
-  }
-  .xd {
-    top: 31.05em;
-    right: 5.45em;
-  }
-  /* Icons end */
   .hero-companies {
-    position: unset;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-    margin: 10.7em auto 0;
+    margin: 0 auto;
   }
   .hero-companies p {
     font-size: 2rem;
   }
   .companies-wrapper {
-    padding: 2em 5em 1em;
+    padding: 2rem 4rem 1rem;
+    gap: 1rem;
   }
-  .companies-wrapper svg {
-    height: 4em;
+  .companies-wrapper div {
+    margin: 0;
+  }
+  .companies-wrapper div svg {
+    min-height: 4rem;
     width: auto;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .container {
-    width: calc(100vw - 15em);
+    max-width: 1550px;
     margin: 0 auto;
+  }
+  .hero-top {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -108,8 +108,18 @@ button {
 }
 
 /* Hero */
+.hero-top {
+  display: flex;
+  flex-direction: column;
+}
 
 .hero-content-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
   h1 {
     font-size: 3rem;
     margin-top: 2em;
@@ -129,6 +139,7 @@ button {
 
   form {
     width: 100%;
+    margin: 1.5rem 0;
 
     input {
       font-size: 1.1rem;
@@ -155,19 +166,21 @@ button {
   }
 }
 
-.hero-img,
-.hero-blur,
-.ellipse,
-.icon-outer-circle {
-  display: none;
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .hero-companies {
-  position: absolute;
-  bottom: 0;
-  left: 1.5em;
-  right: 1.5em;
   text-align: center;
+
   p {
     color: #b8b8b8;
     font-size: 1.2rem;
@@ -182,20 +195,46 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+
   background-color: $yellow-color;
   border-radius: 1.5em 1.5em 0 0;
 
-  svg {
-    width: 33%;
+  // svg {
+  //   width: 33%;
+  // }
+  div {
+    flex: 1 1;
+    max-width: 150px;
+    min-width: 120px;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 /* Media queries */
 
 @media only screen and (min-width: 640px) {
-  body,
-  .hero-companies {
+  body {
     margin: 1.5em 5em 0;
+  }
+
+  .hero-content-left {
+    h1 {
+      font-size: 3.5rem;
+      margin-top: 2em;
+      line-height: 4.3rem;
+    }
+
+    .subtitle {
+      font-size: 1.6rem;
+    }
+
+    .lead {
+      font-size: 1.4rem;
+    }
   }
 }
 
@@ -247,7 +286,12 @@ button {
   }
 
   .hero-content-left {
-    width: 41%;
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-right: 5rem;
 
     h1 {
       font-size: 5.5rem;
@@ -287,137 +331,37 @@ button {
     }
   }
 
-  .hero-img {
-    display: block;
-    position: absolute;
-    top: 5.25em;
-    right: 5.4em;
-    background: no-repeat
-      url('../assets/teenage-black-boy-png-transparent-png.png');
-    background-size: contain;
-    width: 43.25em;
-    height: 50em;
-    z-index: -1;
-    // overflow: hidden;
-  }
-
-  .hero-blur {
-    display: block;
-    position: absolute;
-    z-index: -1;
-    top: 46.45em;
-    right: 4.6em;
-    width: 49em;
-    padding: 2.1em 13.1em 4em;
-    text-align: center;
-
-    background: radial-gradient(
-      100% 100% at 0% 0%,
-      rgba(249, 251, 255, 0.4) 0%,
-      rgba(249, 251, 255, 0) 100%
-    );
-
-    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
-    box-shadow: inset -5px -5px 250px rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(1.1em);
-    /* Note: backdrop-filter has minimal browser support */
-
-    p {
-      margin: 0;
-      color: #ffffff;
-      font-size: 1.625rem;
-      line-height: 2rem;
-      letter-spacing: 0.05em;
-
-      span {
-        color: #fed916;
-      }
-    }
-  }
-
-  .ellipse {
-    display: block;
-    position: absolute;
-    width: 28em;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    z-index: -22;
-  }
-
-  .ellipse-top {
-    top: 11em;
-    right: 22.4em;
-    background: #fbe3b2;
-  }
-
-  .ellipse-bot {
-    top: 25em;
-    right: 6.4em;
-    background: #d2f8ff;
-  }
-
-  /* Icons start */
-  .icon-outer-circle {
-    display: block;
-    width: 4.5em;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #ffffff;
-    filter: drop-shadow(5px 6px 12px rgba(0, 0, 0, 0.1));
-    z-index: -11;
-
-    svg {
-      width: 2.1em;
-      height: auto;
-    }
-  }
-
-  .ae {
-    top: 10.75em;
-    right: 45.8em;
-  }
-
-  .ps {
-    top: 26em;
-    right: 47.55em;
-  }
-
-  .ai {
-    top: 17.45em;
-    right: 15.4em;
-  }
-
-  .xd {
-    top: 31.05em;
-    right: 5.45em;
-  }
-  /* Icons end */
-
   .hero-companies {
-    position: unset;
     width: fit-content;
-    margin: 10.7em auto 0;
+    margin: 0 auto;
+
     p {
       font-size: 2rem;
     }
   }
 
   .companies-wrapper {
-    padding: 2em 5em 1em;
-    svg {
-      height: 4em;
-      width: auto;
+    padding: 2rem 4rem 1rem;
+    gap: 1rem;
+
+    div {
+      margin: 0;
+
+      svg {
+        min-height: 4rem;
+        width: auto;
+      }
     }
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .container {
-    width: calc(100vw - 15em);
+    max-width: 1550px;
     margin: 0 auto;
+  }
+
+  .hero-top {
+    flex-direction: row;
   }
 }
